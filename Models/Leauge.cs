@@ -5,6 +5,6 @@
         public int LeaugeId { get; set; }
         public string LeaugeName { get; set; }
         public DateTime? LeaugeStartDate { get; set; }
-        public string LeagueType { get; set; }
+        public int LeagueType { get; set; }
     }
 }

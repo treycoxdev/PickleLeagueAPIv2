@@ -88,6 +88,10 @@ namespace PickleLeaugev4.Controllers
             {
                 Leauge.LeaugeStartDate = request.LeaugeStartDate;
             }
+            if (request.LeagueType != null)
+            {
+                Leauge.LeagueType = request.LeagueType;
+            }
 
             await _context.SaveChangesAsync();
 
