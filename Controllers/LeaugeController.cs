@@ -58,6 +58,20 @@ namespace PickleLeaugev4.Controllers
             return Ok(Leauge);
         }
 
+        [HttpGet("Session/{id}")]
+        public async Task<ActionResult<Session>> GetSessiomsByLeague(int id)
+        {
+            var Sessions = await (from S in _context.Sessions
+                                  where S.LeaugeId == id
+                                 select S).ToListAsync();
+            if (Sessions == null)
+            {
+                return BadRequest("Leauge not found");
+            }
+            return Ok(Sessions);
+        }
+
+
         [HttpPut]
         public async Task<ActionResult<Leauge>> UpdateLeauge(Leauge request)
         {

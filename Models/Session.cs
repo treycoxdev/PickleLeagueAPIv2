@@ -5,5 +5,6 @@
         public int SessionId { get; set; }
         public DateTime SessionTime { get; set; }
         public string SessionLocation { get; set; }
+        public int LeaugeId { get; set; }
     }
 }
