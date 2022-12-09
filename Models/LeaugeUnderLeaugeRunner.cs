@@ -2,9 +2,10 @@
 
 namespace PickleLeaugev4.Models
 {
-    [Keyless]
+    
     public class LeaugeUnderLeaugeRunner
     {
+        public int Id { get; set; }
         public int LeaugeId { get; set; }
         public int LeagueRunnerId { get; set; }
     }

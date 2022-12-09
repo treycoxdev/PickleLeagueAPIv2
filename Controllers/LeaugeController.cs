@@ -53,9 +53,40 @@ namespace PickleLeaugev4.Controllers
         [HttpPost]
         public async Task<ActionResult<List<Leauge>>> AddLeauge(Leauge Leauge)
         {
+            
             _context.Leauges.Add(Leauge);
             await _context.SaveChangesAsync();
             return Ok(Leauge);
+        }
+
+        [HttpPost("LeaugeWithRunnerId")]
+        public async Task AddLeaugeWithRunner(LeaugeWithRunnerId leaugeWithRunnerId)
+        {
+            Leauge leauge = new Leauge();
+            LeaugeUnderLeaugeRunner leaugeUnderLeaugeRunner = new LeaugeUnderLeaugeRunner();
+
+            leauge.LeaugeName = leaugeWithRunnerId.LeaugeName;
+            leauge.LeaugeStartDate = leaugeWithRunnerId.LeaugeStartDate;
+            leauge.LeagueType = leaugeWithRunnerId.LeagueType;
+            _context.Leauges.Add(leauge);
+            await _context.SaveChangesAsync();
+
+            int leaugeId = leauge.LeaugeId;
+
+            leaugeUnderLeaugeRunner.LeaugeId = leaugeId;
+            leaugeUnderLeaugeRunner.LeagueRunnerId = leaugeWithRunnerId.LeaugeRunnerId;
+            _context.LeaugeUnderLeaugeRunner.Add(leaugeUnderLeaugeRunner);
+            await _context.SaveChangesAsync();
+
+        }
+
+        [HttpPost("LeaugeRunner")]
+        public async Task<ActionResult<List<Leauge>>> AddLeaugeRunner(LeaugeUnderLeaugeRunner leaugeUnderLeaugeRunner)
+        {
+            _context.LeaugeUnderLeaugeRunner.Add(leaugeUnderLeaugeRunner);
+            await _context.SaveChangesAsync();
+            return Ok(leaugeUnderLeaugeRunner);
+
         }
 
         [HttpGet("Session/{id}")]
