@@ -35,6 +35,18 @@ namespace PickleLeaugev4.Controllers
             return Ok(Team);
         }
 
+        [HttpGet("LeagueId/{id}")]
+        public async Task<ActionResult<Team>> GetTeam(int id)
+        {
+            var Team = await (from T in _context.Teams
+                                  where T.LeaugeId == id
+                                  select T).ToListAsync();
+            if (Team == null)
+            {
+                return BadRequest("Team not found");
+            }
+            return Ok(Team);
+        }
 
         [HttpPost]
         public async Task<ActionResult<List<Team>>> AddTeam(Team Team)

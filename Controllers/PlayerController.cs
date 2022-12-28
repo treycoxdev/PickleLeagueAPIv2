@@ -35,6 +35,14 @@ namespace PickleLeaugev4.Controllers
             return Ok(Player);
         }
 
+        [HttpPost("Team")]
+        public async Task<ActionResult<PlayerInTeam>> AddPlayerToTeam(PlayerInTeam playerInTeam)
+        {
+            _context.PlayersInTeams.Add(playerInTeam);
+            await _context.SaveChangesAsync();
+            return Ok(playerInTeam);
+        }
+
 
         [HttpPost]
         public async Task<ActionResult<List<Player>>> AddPlayer(Player Player)

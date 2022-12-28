@@ -21,13 +21,13 @@ namespace PickleLeaugev4.Controllers
         [HttpGet("Get")]
         public async Task<ActionResult<List<Leauge>>> Get()
         {
-            return Ok(await _context.Leauges.ToListAsync());
+            return Ok(await _context.Leauge.ToListAsync());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Leauge>> Get(int id)
         {
-            var Leauge = await _context.Leauges.FindAsync(id);
+            var Leauge = await _context.Leauge.FindAsync(id);
             if (Leauge == null)
             {
                 return BadRequest("Leauge not found");
@@ -38,15 +38,15 @@ namespace PickleLeaugev4.Controllers
         [HttpGet("LeagueRunner/{id}")]
         public async Task<ActionResult<Leauge>> GetByLeagueRunner(int id)
         {
-            var Leauges = await (from L in _context.Leauges
+            var Leauge = await (from L in _context.Leauge
                                  join LR in _context.LeaugeUnderLeaugeRunner on L.LeaugeId equals LR.LeaugeId
                                  where LR.LeagueRunnerId == id
                                  select L).ToListAsync();
-            if (Leauges == null)
+            if (Leauge == null)
             {
                 return BadRequest("Leauge not found");
             }
-            return Ok(Leauges);
+            return Ok(Leauge);
         }
 
 
@@ -54,38 +54,38 @@ namespace PickleLeaugev4.Controllers
         public async Task<ActionResult<List<Leauge>>> AddLeauge(Leauge Leauge)
         {
             
-            _context.Leauges.Add(Leauge);
+            _context.Leauge.Add(Leauge);
             await _context.SaveChangesAsync();
             return Ok(Leauge);
         }
 
         [HttpPost("LeaugeWithRunnerId")]
-        public async Task AddLeaugeWithRunner(LeaugeWithRunnerId leaugeWithRunnerId)
+        public async Task AddLeaugeWithRunner(LeaugeWithRunnerId LeaugeWithRunnerId)
         {
-            Leauge leauge = new Leauge();
-            LeaugeUnderLeaugeRunner leaugeUnderLeaugeRunner = new LeaugeUnderLeaugeRunner();
+            Leauge Leauge = new Leauge();
+            LeaugeUnderLeaugeRunner LeaugeUnderLeaugeRunner = new LeaugeUnderLeaugeRunner();
 
-            leauge.LeaugeName = leaugeWithRunnerId.LeaugeName;
-            leauge.LeaugeStartDate = leaugeWithRunnerId.LeaugeStartDate;
-            leauge.LeagueType = leaugeWithRunnerId.LeagueType;
-            _context.Leauges.Add(leauge);
+            Leauge.LeaugeName = LeaugeWithRunnerId.LeaugeName;
+            Leauge.LeaugeStartDate = LeaugeWithRunnerId.LeaugeStartDate;
+            Leauge.LeagueType = LeaugeWithRunnerId.LeagueType;
+            _context.Leauge.Add(Leauge);
             await _context.SaveChangesAsync();
 
-            int leaugeId = leauge.LeaugeId;
+            int LeaugeId = Leauge.LeaugeId;
 
-            leaugeUnderLeaugeRunner.LeaugeId = leaugeId;
-            leaugeUnderLeaugeRunner.LeagueRunnerId = leaugeWithRunnerId.LeaugeRunnerId;
-            _context.LeaugeUnderLeaugeRunner.Add(leaugeUnderLeaugeRunner);
+            LeaugeUnderLeaugeRunner.LeaugeId = LeaugeId;
+            LeaugeUnderLeaugeRunner.LeagueRunnerId = LeaugeWithRunnerId.LeaugeRunnerId;
+            _context.LeaugeUnderLeaugeRunner.Add(LeaugeUnderLeaugeRunner);
             await _context.SaveChangesAsync();
 
         }
 
         [HttpPost("LeaugeRunner")]
-        public async Task<ActionResult<List<Leauge>>> AddLeaugeRunner(LeaugeUnderLeaugeRunner leaugeUnderLeaugeRunner)
+        public async Task<ActionResult<List<Leauge>>> AddLeaugeRunner(LeaugeUnderLeaugeRunner LeaugeUnderLeaugeRunner)
         {
-            _context.LeaugeUnderLeaugeRunner.Add(leaugeUnderLeaugeRunner);
+            _context.LeaugeUnderLeaugeRunner.Add(LeaugeUnderLeaugeRunner);
             await _context.SaveChangesAsync();
-            return Ok(leaugeUnderLeaugeRunner);
+            return Ok(LeaugeUnderLeaugeRunner);
 
         }
 
@@ -106,7 +106,7 @@ namespace PickleLeaugev4.Controllers
         [HttpPut]
         public async Task<ActionResult<Leauge>> UpdateLeauge(Leauge request)
         {
-            var Leauge = await _context.Leauges.FindAsync(request.LeaugeId);
+            var Leauge = await _context.Leauge.FindAsync(request.LeaugeId);
             if (Leauge == null)
             {
                 return BadRequest("Leauge not found");
@@ -132,12 +132,12 @@ namespace PickleLeaugev4.Controllers
         [HttpDelete]
         public async Task<ActionResult<List<Leauge>>> Delete(int id)
         {
-            var Leauge = await _context.Leauges.FindAsync(id);
+            var Leauge = await _context.Leauge.FindAsync(id);
             if (Leauge == null)
             {
                 return BadRequest("Leauge not found");
             }
-            _context.Leauges.Remove(Leauge);
+            _context.Leauge.Remove(Leauge);
             await _context.SaveChangesAsync();
 
             return Ok(Leauge);

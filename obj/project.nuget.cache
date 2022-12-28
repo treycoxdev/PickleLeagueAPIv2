@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5uXkrMg7CX7aYfgl9P9o6tPTgjCLlXqgI6ImOgZQe+bbCxn2JeaPE8C1tuBW12Ihpa83kLntWWmMuwrIl61fKw==",
+  "dgSpecHash": "sx0iLrbs6xsxawh+S1lmDcaPXyXoaOGwg4Pc8CulAJa1tesoySEGLWz/D4EdnQupkZeKlqXq1hUi+K7IpbLXkA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tcoll\\Desktop\\bpl\\PickleLeaugev4\\PickleLeaugev4.csproj",
+  "projectFilePath": "C:\\Users\\tcoll\\Desktop\\BPL\\PickleLeaugev4\\PickleLeaugev4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tcoll\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\tcoll\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
