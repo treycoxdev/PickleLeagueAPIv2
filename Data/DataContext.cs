@@ -7,6 +7,7 @@ namespace PickleLeaugev4.Data {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
         public DbSet<Club> Clubs { get; set; }
+        public DbSet<Game> Game {get; set;}
         public DbSet<Leauge> Leauge { get; set; }
         public DbSet<LeaugeInClub> LeaugeInClubs { get; set; }
         public DbSet<LeaugeRunner> LeaugeRunners { get; set; }
