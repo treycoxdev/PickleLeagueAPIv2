@@ -35,6 +35,24 @@ namespace PickleLeaugev4.Controllers
             return Ok(Player);
         }
 
+        [HttpGet("League/{id}")]
+        public async Task<ActionResult<Session>> GetPlayerByLeauge(int id)
+        {
+            var Players = await (from  PIL in _context.PlayersInLeauges 
+                                 join P in _context.Players on PIL.PlayerId equals P.PlayerId
+                                 where PIL.LeaugeId == id
+                                 select P).ToListAsync();
+            return Ok(Players);
+        }
+
+        [HttpPost("League")]
+        public async Task<ActionResult<PlayerInTeam>> AddPlayerToLeague(PlayerInLeauge playerInLeague)
+        {
+            _context.PlayersInLeauges.Add(playerInLeague);
+            await _context.SaveChangesAsync();
+            return Ok(playerInLeague);
+        }
+
         [HttpPost("Team")]
         public async Task<ActionResult<PlayerInTeam>> AddPlayerToTeam(PlayerInTeam playerInTeam)
         {
