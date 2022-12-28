@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tcoll\\Desktop\\BPL\\PickleLeaugev4\\PickleLeaugev4.csproj": {}
+    "C:\\Users\\tcox\\OneDrive - Beeline\\desktop\\beelinePickleball\\PickleLeagueAPIv2\\PickleLeaugev4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tcoll\\Desktop\\BPL\\PickleLeaugev4\\PickleLeaugev4.csproj": {
+    "C:\\Users\\tcox\\OneDrive - Beeline\\desktop\\beelinePickleball\\PickleLeagueAPIv2\\PickleLeaugev4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tcoll\\Desktop\\BPL\\PickleLeaugev4\\PickleLeaugev4.csproj",
+        "projectUniqueName": "C:\\Users\\tcox\\OneDrive - Beeline\\desktop\\beelinePickleball\\PickleLeagueAPIv2\\PickleLeaugev4.csproj",
         "projectName": "PickleLeaugev4",
-        "projectPath": "C:\\Users\\tcoll\\Desktop\\BPL\\PickleLeaugev4\\PickleLeaugev4.csproj",
-        "packagesPath": "C:\\Users\\tcoll\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tcoll\\Desktop\\BPL\\PickleLeaugev4\\obj\\",
+        "projectPath": "C:\\Users\\tcox\\OneDrive - Beeline\\desktop\\beelinePickleball\\PickleLeagueAPIv2\\PickleLeaugev4.csproj",
+        "packagesPath": "C:\\Users\\tcox\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tcox\\OneDrive - Beeline\\desktop\\beelinePickleball\\PickleLeagueAPIv2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tcoll\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tcox\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,7 +73,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -85,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
